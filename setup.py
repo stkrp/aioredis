@@ -6,8 +6,9 @@ from setuptools import setup, find_packages
 
 
 install_requires = ['async-timeout']
+extras_require = {}
 if platform.python_implementation() == 'CPython':
-    install_requires.append('hiredis')
+    extras_require['hiredis'] = ['hiredis']
 
 PY_VER = sys.version_info
 
@@ -61,5 +62,6 @@ setup(name='aioredis',
       license="MIT",
       packages=find_packages(exclude=["tests"]),
       install_requires=install_requires,
+      extras_require=extras_require,
       include_package_data=True,
       )
